@@ -1,4 +1,16 @@
 DbcOverflow::Application.routes.draw do
+  resources :users, :except => [:destroy]
+  resources :questions do
+    resources :answers, :except => [:index, :show]
+  end
+
+# How to get answer paths in a nested route?
+
+  root to: "questions#index"
+
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

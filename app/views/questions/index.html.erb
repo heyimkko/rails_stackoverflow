@@ -1,0 +1,4 @@
+<h1>Super cool question page</h1>
+<% @questions.each do |inquisition| %>
+  <li><%= link_to inquisition.title, inquisition %></li>
+<% end %>
