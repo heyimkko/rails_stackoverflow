@@ -2,4 +2,9 @@
 <p><%= @question.content %></p>
 
 
-<%= link_to "Answer This Question", new_question_answer_path %>
+<%= link_to "Answer This Question", new_question_answer_path(@question) %> 
+
+<% @answers.each do |answer| %>
+  <li><%= answer.content %></li>
+  Posted by: <%= answer.user_id %></li>
+<% end %>

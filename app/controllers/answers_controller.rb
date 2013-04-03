@@ -1,12 +1,22 @@
 class AnswersController < ApplicationController
+  before_filter :find_question
+
   def new
-    @question = Question.find(params[:id])
     @answer = Answer.new
+    puts @answer.inspect
   end
 
   def create
-    answer = Answer.create!(params[:answer])
+    Answer.create!(:content => params[:answer][:content], 
+                   :question_id => @question.id,
+                   :user_id => 1)
 
-    redirect_to answer, questions_path(params[:question_id])
+    redirect_to question_path(@question.id)
+  end
+
+  private
+
+  def find_question
+    @question = Question.find(params[:question_id])
   end
 end
