@@ -4,4 +4,10 @@ FactoryGirl.define do
     email "kevin@kevin.com" 
     password "foobar"
   end
+
+  factory :question do
+    title "how do I use rails"
+    content "a question"
+    user
+  end
 end

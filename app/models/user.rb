@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  has_many :questions
+  
   EMAIL_REGEXP = /^[_a-z0-9A-Z-]+(\.[_a-z0-9A-Z-]+)*@[a-z0-9A-Z-]+(\.[a-z0-9A-Z-]+)*(\.[a-zA-Z]{2,4})$/
   attr_accessible :name, :email, :password
   has_secure_password
