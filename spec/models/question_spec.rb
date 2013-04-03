@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Question do
-  let(:question) {FactoryGirl.create(:question) }
+  let(:question) { create(:question) }
 
   subject { question }
 
@@ -27,6 +27,4 @@ describe Question do
     question.content = "dd"
     question.should_not be_valid
   end  
-
-
 end
