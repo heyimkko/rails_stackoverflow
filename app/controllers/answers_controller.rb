@@ -3,15 +3,18 @@ class AnswersController < ApplicationController
 
   def new
     @answer = Answer.new
-    puts @answer.inspect
   end
 
   def create
-    Answer.create!(:content => params[:answer][:content], 
-                   :question_id => @question.id,
-                   :user_id => 1)
+    @answer = @question.answers.build(:content => params[:answer][:content])
+    @answer.user = current_user
 
-    redirect_to question_path(@question.id)
+    if @answer.save
+      render :json => @answer
+    else
+      render :json => @answer.errors.full_messages.join(","),
+                      :status => :unprocessable_entity
+    end
   end
 
   private
