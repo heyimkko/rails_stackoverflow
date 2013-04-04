@@ -15,7 +15,8 @@
       <%= answer.content %>
       Posted by: <%= answer.user_id %> 
       <% if answer.user == current_user %>
-        <%= link_to '[x]', question_answer_path(@question, answer), :class => 'delete', :remote => true, :method => 'delete' %>
+        <%= link_to '[x]', question_answer_path(@question, answer), 
+            :class => 'delete', :remote => true, :method => 'delete' %>
       <% end %>
     </li>
   <% end %>

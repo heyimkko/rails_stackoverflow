@@ -9,13 +9,21 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    if current_user
+      @question = Question.new
+    else
+      redirect_to new_session_path
+    end 
   end
 
   def create
-    params[:question][:user_id] = 1 #TODO: Hardcoded
-    question = Question.create!(params[:question])
-
-    redirect_to question_path(question)
+    @question = Question.new(params[:question])
+    @question.user = current_user
+    if @question.save
+      redirect_to question_path(@question)
+    else 
+      flash.now[:alert] = @question.errors.full_messages.join(",")
+      render :new
+    end
   end
 end

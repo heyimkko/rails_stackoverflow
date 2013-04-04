@@ -1,15 +1,20 @@
+<h1>Add a Question</h1>
+<% if flash[:alert] %>
+  <ul class="alert">
+    <% flash[:alert].split(',').each do |alert| %>
+      <li><%= alert %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @question do |f| %>
 <div>
   <%= f.label :title %><br>
   <%= f.text_field :title %>
-</div>
-<div>
   <%= f.label :content %><br>
   <%= f.text_area :content %>
+  <%= f.submit "Add Question" %>
 </div>
-  <div>
-    <%= f.submit "Add Question" %>
-  </div>
 <% end %>
 
 <%= link_to "Back to Index", root_path %>

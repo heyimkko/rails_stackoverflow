@@ -8,13 +8,14 @@ var Answer = {
   },
     
   appendAnswer: function(event, data) {
+    $('li#answer_errors').hide();
     $('ul.answers').append('<li>' + data.content + '</li>');
     $('ul.answers').append('Posted by: ' + data.user_id);                         
   },
 
   showErrors: function(xhr, data, status) {
     if (data.statusText == "Unauthorized") return window.location = data.responseText
-      $('ul.answers').before(data.responseText);
+      $('ul.answers').before("<li id='answer_errors'>" + data.responseText + "</li>");
   },
 
   confirmDelete: function() {
