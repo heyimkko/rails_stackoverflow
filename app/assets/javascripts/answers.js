@@ -1,6 +1,7 @@
 var Answer = {
-  init:function() {
+  init: function() {
     $('form.new_answer').on('ajax:success', this.appendAnswer);
+    $('form.new_answer').on('ajax:success', this.clearTextArea);
     $('form.new_answer').on('ajax:error', this.showErrors);
     $('.answers').on('click', 'a.delete', this.confirmDelete);
     $('.answers').on('ajax:success', 'a.delete', this.deleteAnswer);
@@ -18,6 +19,10 @@ var Answer = {
 
   confirmDelete: function() {
     if (!confirm("Are you sure you want to delete this answer?")) return false;
+  },
+
+  clearTextArea: function() {
+    $('textarea#answer_content').val("");
   },
 
   deleteAnswer: function() {

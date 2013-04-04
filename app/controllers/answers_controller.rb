@@ -1,9 +1,9 @@
 class AnswersController < ApplicationController
   before_filter :find_question
 
-  def new
-    @answer = Answer.new
-  end
+  # def new
+  #   @answer = Answer.new
+  # end
 
   def create
     @answer = @question.answers.build(:content => params[:answer][:content])

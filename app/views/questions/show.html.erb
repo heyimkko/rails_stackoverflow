@@ -1,8 +1,5 @@
-<h1><%= @question.title %></h1>
+<h1>Q: <%= @question.title %></h1>
 <p><%= @question.content %></p>
-
-
-<%#= link_to "Answer This Question", new_question_answer_path(@question) %> 
 
 <%= form_for [@question, Answer.new], :remote => true do |f| %>
   <div>
