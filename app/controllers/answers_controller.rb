@@ -17,6 +17,12 @@ class AnswersController < ApplicationController
     end
   end
 
+  def destroy
+    answer = Answer.find(params[:id])
+    answer.destroy
+    render :json => {}
+  end
+
   private
 
   def find_question
