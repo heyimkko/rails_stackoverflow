@@ -8,16 +8,32 @@
 </head>
 <body>
 
+<header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "CupOverfloweth", root_path, id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+          <% if current_user %>
+            <li><%= link_to "Hey " + current_user.name, user_path(current_user) %></li>
+            <li><%= link_to "Signout", session_path(session[:user_id]), :method => :delete %></li>
+          <% else %>
+            <%= link_to "Signup", new_user_path %>
+            <%= link_to "Signin", new_session_path %>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
 
-<% if current_user %>
-  <p>Hey <%= current_user.name %></p>
-  <%= link_to "Signout", session_path(session[:user_id]), :method => :delete %>
-<% else %>
-  <%= link_to "Signup", new_user_path %>
-  <%= link_to "Signin", new_session_path %>
-<% end %>
+<div class="container">
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+  <% end %>
 
-<%= yield %>
-
+  <%= yield %>
+</div>
+  
 </body>
 </html>

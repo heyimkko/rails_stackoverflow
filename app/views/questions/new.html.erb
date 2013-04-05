@@ -1,11 +1,4 @@
 <h1>Add a Question</h1>
-<% if flash[:alert] %>
-  <ul class="alert">
-    <% flash[:alert].split(',').each do |alert| %>
-      <li><%= alert %></li>
-    <% end %>
-  </ul>
-<% end %>
 
 <%= form_for @question do |f| %>
 <div>

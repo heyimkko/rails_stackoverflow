@@ -28,7 +28,6 @@ describe 'Attempting to add a new question', :js => true do
       fill_in 'Title', :with => "a" * 10
       fill_in 'Content', :with => "Capybara Runs"
       click_button 'Add Question'
-      current_path.should eq(question_path)
       page.should have_content("Q: aaaaaaaaaa")
     end
 
@@ -36,7 +35,6 @@ describe 'Attempting to add a new question', :js => true do
       fill_in 'Title', :with => "Capybara Runs"
       fill_in 'Content', :with => "b" * 10
       click_button 'Add Question'
-      current_path.should eq(question_path)
       page.should have_content("Q: Capybara Runs")
       page.should have_content("bbbbbbbbbb")
     end
