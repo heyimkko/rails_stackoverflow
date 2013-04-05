@@ -9,8 +9,8 @@ var Answer = {
     
   appendAnswer: function(event, data) {
     $('li#answer_errors').hide();
-    $('ul.answers').append('<li>' + data.content + '</li>');
-    $('ul.answers').append('Posted by: ' + data.user_id);                         
+    $('ul.answers').append('<li>' + data.answer.content + '</li>');
+    $('ul.answers').append('Posted by: ' + data.user.name);                         
   },
 
   showErrors: function(xhr, data, status) {

@@ -1,7 +1,7 @@
 var Question = {
   init: function() {
-    $('.questions').on('click', 'a.delete', this.confirmDelete);
-    $('.questions').on('ajax:success', 'a.delete', this.deleteQuestion);
+    $('.questions').on('click', 'a.icon-remove', this.confirmDelete);
+    $('.questions').on('ajax:success', 'a.icon-remove', this.deleteQuestion);
   },
 
   confirmDelete: function() {

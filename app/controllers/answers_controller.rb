@@ -8,9 +8,10 @@ class AnswersController < ApplicationController
   def create
     @answer = @question.answers.build(:content => params[:answer][:content])
     @answer.user = current_user
+    @user = current_user
 
     if @answer.save
-      render :json => @answer
+      render :json => {:answer => @answer, :user => @user }
     else
       render :json => @answer.errors.full_messages.join(","),
                       :status => :unprocessable_entity
