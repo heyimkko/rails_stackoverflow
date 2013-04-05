@@ -3,8 +3,8 @@ var Answer = {
     $('form.new_answer').on('ajax:success', this.appendAnswer);
     $('form.new_answer').on('ajax:success', this.clearTextArea);
     $('form.new_answer').on('ajax:error', this.showErrors);
-    $('.answers').on('click', 'a.delete', this.confirmDelete);
-    $('.answers').on('ajax:success', 'a.delete', this.deleteAnswer);
+    $('.answers').on('click', 'a.icon-remove', this.confirmDelete);
+    $('.answers').on('ajax:success', 'a.icon-remove', this.deleteAnswer);
   },
     
   appendAnswer: function(event, data) {

@@ -6,8 +6,8 @@
 <% @questions.each do |inquisition| %>
   <li><%= link_to inquisition.title, inquisition %>
     <% if inquisition.user == current_user %>
-      <%= link_to '[x]', question_path(inquisition), 
-          :class => 'delete', :remote => true, :method => 'delete' %>
+      <%= link_to '', question_path(inquisition), 
+          :class => 'icon-remove', :remote => true, :method => 'delete' %>
     <% end %>
   </li>
 <% end %>
