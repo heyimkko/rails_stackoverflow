@@ -22,9 +22,15 @@ section {
   overflow: auto;
 }
 
-textarea {
-  resize: vertical;
+/* Why doesn't this work on just input, textarea, etc? */
+input#question_title, textarea#question_content, textarea#answer_content {
+  width: 560px;
+
 }
+textarea#answer_content {
+  height: 5em;
+}
+
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;

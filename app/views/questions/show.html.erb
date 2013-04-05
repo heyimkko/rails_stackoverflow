@@ -3,9 +3,9 @@
 
 <%= form_for [@question, Answer.new], :remote => true do |f| %>
   <div>
-    <%= f.label :content %><br>
-    <%= f.text_area :content, :placeholder => "Answer this question" %>
-    <%= f.submit "Submit Answer" %>
+    <%= f.label :content %>
+    <%= f.text_area :content, :placeholder => "Answer this question" %><br>
+    <%= f.submit "Submit Answer", :class => "btn btn-large btn-primary" %>
   </div>
 <% end %>
 
