@@ -14,7 +14,7 @@ describe 'Attempting to add a new question', :js => true do
 
     it "shouldn't take a title greater than 5 characters" do
       fill_in 'Title', :with => "a" * 1
-      click_button 'Add Question'
+      click_button 'Add Question' 
       page.should have_content("Title is too short")
     end
 

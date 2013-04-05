@@ -1,2 +1,18 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+var Question = {
+  init: function() {
+    $('.questions').on('click', 'a.delete', this.confirmDelete);
+    $('.questions').on('ajax:success', 'a.delete', this.deleteQuestion);
+  },
+
+  confirmDelete: function() {
+    if (!confirm("Are you sure you want to delete this question?")) return false;
+  },
+
+  deleteQuestion: function() {
+    $(this).parent('li').hide('slow');
+  }
+}
+
+$(document).ready(function() {
+  Question.init();
+});

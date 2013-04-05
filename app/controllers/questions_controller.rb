@@ -26,4 +26,10 @@ class QuestionsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    question = Question.find(params[:id])
+    question.destroy
+    render :json => {}
+  end
 end

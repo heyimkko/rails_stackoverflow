@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DbcOverflow</title>
+  <title>CupOverfloweth</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -10,7 +10,7 @@
 
 
 <% if current_user %>
-  <p>Hey you're logged in</p>
+  <p>Hey <%= current_user.name %></p>
   <%= link_to "Signout", session_path(session[:user_id]), :method => :delete %>
 <% else %>
   <%= link_to "Signup", new_user_path %>

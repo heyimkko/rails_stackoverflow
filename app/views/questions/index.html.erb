@@ -1,5 +1,30 @@
-<h1>Super cool question page</h1>
-<%= link_to "Add a Question", new_question_path %>
-<% @questions.each do |inquisition| %>
-  <li><%= link_to inquisition.title, inquisition %></li>
+<h1>CupOverfloweth</h1>
+
+<% if flash[:alert] %>
+  <ul class="alert">
+    <% flash[:alert].split(',').each do |alert| %>
+      <li><%= alert %></li>
+    <% end %>
+  </ul>
 <% end %>
+
+<% if flash[:notice] %>
+  <ul class="notice">
+    <% flash[:notice].split(',').each do |notice| %>
+      <li><%= notice %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "Add a Question", new_question_path, :class => "add" %>
+
+<ul class="questions">
+<% @questions.each do |inquisition| %>
+  <li><%= link_to inquisition.title, inquisition %>
+    <% if inquisition.user == current_user %>
+      <%= link_to '[x]', question_path(inquisition), 
+          :class => 'delete', :remote => true, :method => 'delete' %>
+    <% end %>
+  </li>
+<% end %>
+</ul>
